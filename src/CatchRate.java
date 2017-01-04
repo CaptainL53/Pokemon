@@ -78,7 +78,7 @@ public class CatchRate {
 		boolean caught = false;
 		int catch2 = (int) (1048560 / Math.sqrt(Math.sqrt(16711680 / CatchValue)));
 		double chance = (Math.pow((double)catch2/65536, 4)) * 100;
-		System.out.print("The probability of catching this Pokémon is ");
+		System.out.print("The probability of catching this Pokémon is about ");
 		System.out.printf("%.2f", chance);
 		System.out.println("%");
 		System.out.print("Let's try a simulation: ");
