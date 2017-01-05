@@ -6,13 +6,18 @@ public class Type {
 	
 	public static void main(String[] args) throws FileNotFoundException{
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter the Pokemon you want to know the type of: ");
-		String pokemon = sc.next();
-		Checker(pokemon);
+		String question = "Y";
+		while(question.equals("Y") || question.equals("y")){
+			System.out.print("Enter the Pokemon you want to know the type of: ");
+			String pokemon = sc.next();
+			question = Checker(pokemon, sc);
+			System.out.println();
+		}		
+		sc.close();
 		
 	}
 	
-	public static void Checker(String pokemon) throws FileNotFoundException{
+	public static String Checker(String pokemon, Scanner sc) throws FileNotFoundException{
 		Scanner input = new Scanner(new File("type.txt"));
 		String pokemonname = "";
 		String type1 = "";
@@ -43,6 +48,10 @@ public class Type {
 		System.out.println("Here's a list of " + pokemon + "'s weaknesses with the damage multiplier:");
 		Matchup MU = new Matchup(type1, type2);
 		MU.MainCalc();
+		System.out.println();
+		System.out.print("Would you like to test another Pokemon? Enter Y for yes or N for no: " );
+		String question = sc.next();
+		return question;				
 	}
 	
 }

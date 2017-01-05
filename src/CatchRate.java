@@ -19,6 +19,7 @@ public class CatchRate {
 		String status = sc.next();
 		//System.out.println(pokemon);
 		Calculation(pokemon, maxhealth, currenthealth, ball, status);
+		sc.close();
 	}
 	
 	public static void Calculation(String pokemon, int maxhealth, int currenthealth, String ball, String status) throws FileNotFoundException{
