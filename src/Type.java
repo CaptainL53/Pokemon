@@ -49,7 +49,7 @@ public class Type {
 		Matchup MU = new Matchup(type1, type2);
 		MU.MainCalc();
 		System.out.println();
-		System.out.print("Would you like to test another Pokemon? Enter Y for yes or N for no: " );
+		System.out.print("Would you like to test another Pokemon? Press Y for yes or N for no: " );
 		String question = sc.next();
 		return question;				
 	}
