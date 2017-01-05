@@ -9,6 +9,7 @@ public class Type {
 		System.out.print("Enter the Pokemon you want to know the type of: ");
 		String pokemon = sc.next();
 		Checker(pokemon);
+		
 	}
 	
 	public static void Checker(String pokemon) throws FileNotFoundException{
@@ -38,8 +39,12 @@ public class Type {
 		else{
 			System.out.println(pokemon + " is " + type1 + " and " + type2 + " type.");
 		}
-
+		System.out.println();
+		System.out.println("Here's a list of " + pokemon + "'s weaknesses with the damage multiplier:");
+		Matchup MU = new Matchup(type1, type2);
+		MU.MainCalc();
 	}
+	
 }
 
 
