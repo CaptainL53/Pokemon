@@ -75,14 +75,21 @@ public class CatchRate {
 	}
 	
 	public static void Catch(int CatchValue){
-		int shakes = 0;
-		boolean caught = false;
+		boolean redo = false;
 		int catch2 = (int) (1048560 / Math.sqrt(Math.sqrt(16711680 / CatchValue)));
 		double chance = (Math.pow((double)catch2/65536, 4)) * 100;
 		System.out.print("The probability of catching this Pokémon is about ");
 		System.out.printf("%.2f", chance);
 		System.out.println("%");
-		System.out.print("Let's try a simulation: ");
+		System.out.print("Let's try a simulation until it succeeds: ");
+		while(redo == false){		
+			redo = Times(catch2);
+		}
+	}
+	
+	public static boolean Times(int catch2){	
+		int shakes = 0;
+		boolean caught = false;
 		for(int i = 0; i < 4; i++){
 			int random = (int) (Math.random() * 65536);
 			//System.out.println(random);
@@ -99,8 +106,9 @@ public class CatchRate {
 			System.out.println("Caught.");
 		}
 		else{
-			System.out.println("Ball shook " + shakes + " time(s). Failed. ");
+			System.out.println("Failed. Ball shook " + shakes + " time(s)." );
 		}
+		return caught;
 	}
 	
 }
